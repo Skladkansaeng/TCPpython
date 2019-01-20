@@ -17,6 +17,8 @@ srv.listen(5) # maximum queued connections is 5
 a = True
 while a:
     conn,addr = srv.accept() #accepts the connection
-    print ('...connected!')
+    print ('...connected!' ,' ',addr)
     conn.sendall('Wohhhowwwww'.encode('utf-8'))
+    data =conn.recv(BUFFER) 
+    print(data)
 conn.close()
